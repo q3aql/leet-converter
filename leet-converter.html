@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="q3aql (q3aql@openmailbox.org)">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Encoder to l33t (q34q1)</title>
+</head>
+<body>
+
+<fieldset>
+  <legend><h3><center>Encoder to l33t (q34q1) v2.0</center></h3></legend>
+<!--  Form to encode on simple leet -->
+<form action="" method="get" onsubmit="return encode_letters_to_simple_leet()">
+  <fieldset>
+    <legend><b>Encoder Simple leet</b></legend>
+    <label for="simple_leet">Text</label>
+    <input type="simple_leet" name="simple_leet" id="simple_leet"/>
+    <input type="submit" value="Encode"/>
+    <br><br>
+      <div id="simple_leet_msg" style="color: red;">
+      </div>
+  </fieldset>
+</form>
+
+<!--  Form to encode on normal leet -->
+<form action="" method="get" onsubmit="return encode_letters_to_normal_leet()">
+  <fieldset>
+    <legend><b>Encoder Normal leet</b></legend>
+    <label for="normal_leet">Text</label>
+    <input type="normal_leet" name="normal_leet" id="normal_leet"/>
+    <input type="submit" value="Encode"/>
+    <br><br>
+      <div id="normal_leet_msg" style="color: red;">
+      </div>
+  </fieldset>
+</form>
+
+<!--  Form to code on ultime leet -->
+<form action="" method="get" onsubmit="return encode_letters_to_ultimate_leet()">
+  <fieldset>
+    <legend><b>Encoder Ultimate leet</b></legend>
+    <label for="ultimate_leet">Text</label>
+    <input type="ultimate_leet" name="ultimate_leet" id="ultimate_leet"/>
+    <input type="submit" value="Encode"/>
+    <br><br>
+      <div id="ultimate_leet_msg" style="color: red;">
+      </div>
+  </fieldset>
+</form>
+
+<!--  Form to code on heavy leet -->
+<form action="" method="get" onsubmit="return encode_letters_to_heavy_leet()">
+  <fieldset>
+    <legend><b>Encoder Heavy leet</b></legend>
+    <label for="heavy_leet">Text</label>
+    <input type="heavy_leet" name="heavy_leet" id="heavy_leet"/>
+    <input type="submit" value="Encode"/>
+    <br><br>
+      <div id="heavy_leet_msg" style="color: red;">
+      </div>
+  </fieldset>
+</form>
+
+<!--  Form to decode from leet -->
+<hr><hr><hr>
+<form action="" method="get" onsubmit="return decode_letters_from_leet()">
+  <fieldset>
+    <legend><b>Decoder from leet (Beta2)</b></legend>
+    <label for="decode_leet">Text</label>
+    <input type="decode_leet" name="decode_leet" id="decode_leet"/>
+    <input type="submit" value="Decode"/>
+    <br><br>
+      <div id="decode_leet_msg" style="color: red;">
+      </div>
+  </fieldset>
+</form>
+</fieldset>
+
+  <script type="text/javascript">
+  // Function to encode to simple leet
+  function encode_letters_to_simple_leet() {
+    var simple_leet_msg_window = document.getElementById("simple_leet_msg");
+    var text = document.getElementById("simple_leet").value;
+    var count = 0;
+    var textSize = text.length;
+    var separateText = text.split("");
+    simple_leet_msg_window.innerHTML = "";
+
+    while (count < textSize) {
+      if ((separateText[count] == "0" || separateText[count] == "1" || separateText[count] == "2"
+          || separateText[count] == "3" || separateText[count] == "4" || separateText[count] == "5"
+          || separateText[count] == "6" || separateText[count] == "7" || separateText[count] == "8"
+          || separateText[count] == "9" || separateText[count] == "(")) {
+        var number = "yes";
+        simple_leet_msg_window.innerHTML = simple_leet_msg_window.innerHTML + "{" + separateText[count];
+        while (number == "yes") {
+          count = count + 1;
+          if ((separateText[count] == "0" || separateText[count] == "1" || separateText[count] == "2"
+              || separateText[count] == "3" || separateText[count] == "4" || separateText[count] == "5"
+              || separateText[count] == "6" || separateText[count] == "7" || separateText[count] == "8"
+              || separateText[count] == "9" || separateText[count] == "." || separateText[count] == "(")) {
+            simple_leet_msg_window.innerHTML = simple_leet_msg_window.innerHTML + separateText[count];
+          }
+          else {
+            if (separateText[count] == null) {
+              simple_leet_msg_window.innerHTML = simple_leet_msg_window.innerHTML + "}";
+              number = "no";
+            }
+            else {
+              simple_leet_msg_window.innerHTML = simple_leet_msg_window.innerHTML + "}" + separateText[count];
+              number = "no";
+            }
+          }
+        }
+      }
+      else if ((separateText[count] == "A") || (separateText[count] == "a")) {
+        simple_leet_msg_window.innerHTML = simple_leet_msg_window.innerHTML + "4";
+      }
+      else if ((separateText[count] == "Á") || (separateText[count] == "á")) {
+        simple_leet_msg_window.innerHTML = simple_leet_msg_window.innerHTML + "4";
+      }
+      else if ((separateText[count] == "À") || (separateText[count] == "à")) {
+        simple_leet_msg_window.innerHTML = simple_leet_msg_window.innerHTML + "4";
+      }
+      else if ((separateText[count] == "E") || (separateText[count] == "e")) {
+        simple_leet_msg_window.innerHTML = simple_leet_msg_window.innerHTML + "3";
+      }
+      else if ((separateText[count] == "É") || (separateText[count] == "é")) {
+        simple_leet_msg_window.innerHTML = simple_leet_msg_window.innerHTML + "3";
+      }
+      else if ((separateText[count] == "È") || (separateText[count] == "è")) {
+        simple_leet_msg_window.innerHTML = simple_leet_msg_window.innerHTML + "3";
+      }
+      else if ((separateText[count] == "G") || (separateText[count] == "g")) {
+        simple_leet_msg_window.innerHTML = simple_leet_msg_window.innerHTML + "6";
+      }
+      else if ((separateText[count] == "I") || (separateText[count] == "i")) {
+        simple_leet_msg_window.innerHTML = simple_leet_msg_window.innerHTML + "!";
+      }
+      else if ((separateText[count] == "Í") || (separateText[count] == "í")) {
+        simple_leet_msg_window.innerHTML = simple_leet_msg_window.innerHTML + "!";
+      }
+      else if ((separateText[count] == "Ì") || (separateText[count] == "ì")) {
+        simple_leet_msg_window.innerHTML = simple_leet_msg_window.innerHTML + "!";
+      }
+      else if ((separateText[count] == "L") || (separateText[count] == "l")) {
+        simple_leet_msg_window.innerHTML = simple_leet_msg_window.innerHTML + "1";
+      }
+      else if ((separateText[count] == "O") || (separateText[count] == "o")) {
+        simple_leet_msg_window.innerHTML = simple_leet_msg_window.innerHTML + "0";
+      }
+      else if ((separateText[count] == "Ó") || (separateText[count] == "ó")) {
+        simple_leet_msg_window.innerHTML = simple_leet_msg_window.innerHTML + "0";
+      }
+      else if ((separateText[count] == "Ò") || (separateText[count] == "ò")) {
+        simple_leet_msg_window.innerHTML = simple_leet_msg_window.innerHTML + "0";
+      }
+      else if ((separateText[count] == "S") || (separateText[count] == "s")) {
+        simple_leet_msg_window.innerHTML = simple_leet_msg_window.innerHTML + "5";
+      }
+      else if ((separateText[count] == "T") || (separateText[count] == "t")) {
+        simple_leet_msg_window.innerHTML = simple_leet_msg_window.innerHTML + "7";
+      }
+      else if (separateText[count] == "!") {
+        simple_leet_msg_window.innerHTML = simple_leet_msg_window.innerHTML + " !";
+      }
+      else if (separateText[count] == "?") {
+        simple_leet_msg_window.innerHTML = simple_leet_msg_window.innerHTML + " ?";
+      }
+      else {
+        simple_leet_msg_window.innerHTML = simple_leet_msg_window.innerHTML + separateText[count];
+      }
+      count = count + 1;
+    }
+      simple_leet_msg_window.innerHTML = simple_leet_msg_window.innerHTML;
+      return false;
+  }
+
+  // Function to encode to normal leet
+  function encode_letters_to_normal_leet() {
+    var normal_leet_msg_window = document.getElementById("normal_leet_msg");
+    var textNormal = document.getElementById("normal_leet").value;
+    var countNormal = 0;
+    var textSizeNormal = textNormal.length;
+    var separateTextNormal = textNormal.split("");
+    normal_leet_msg_window.innerHTML = "";
+
+    while (countNormal < textSizeNormal) {
+      if ((separateTextNormal[countNormal] == "0" || separateTextNormal[countNormal] == "1" || separateTextNormal[countNormal] == "2"
+          || separateTextNormal[countNormal] == "3" || separateTextNormal[countNormal] == "4" || separateTextNormal[countNormal] == "5"
+          || separateTextNormal[countNormal] == "6" || separateTextNormal[countNormal] == "7" || separateTextNormal[countNormal] == "8"
+          || separateTextNormal[countNormal] == "9" || separateTextNormal[countNormal] == "(")) {
+        var number = "yes";
+        normal_leet_msg_window.innerHTML = normal_leet_msg_window.innerHTML + "{" + separateTextNormal[countNormal];
+        while (number == "yes") {
+          countNormal = countNormal + 1;
+          if ((separateTextNormal[countNormal] == "0" || separateTextNormal[countNormal] == "1" || separateTextNormal[countNormal] == "2"
+              || separateTextNormal[countNormal] == "3" || separateTextNormal[countNormal] == "4" || separateTextNormal[countNormal] == "5"
+              || separateTextNormal[countNormal] == "6" || separateTextNormal[countNormal] == "7" || separateTextNormal[countNormal] == "8"
+              || separateTextNormal[countNormal] == "9" || separateTextNormal[countNormal] == ".") || separateTextNormal[countNormal] == "(") {
+            normal_leet_msg_window.innerHTML = normal_leet_msg_window.innerHTML + separateTextNormal[countNormal];
+          }
+          else {
+            if (separateTextNormal[countNormal] == null) {
+              normal_leet_msg_window.innerHTML = normal_leet_msg_window.innerHTML + "}";
+              number = "no";
+            }
+            else {
+              normal_leet_msg_window.innerHTML = normal_leet_msg_window.innerHTML + "}" + separateTextNormal[countNormal];
+              number = "no";
+            }
+          }
+        }
+      }
+      else if ((separateTextNormal[countNormal] == "A") || (separateTextNormal[countNormal] == "a")) {
+        normal_leet_msg_window.innerHTML = normal_leet_msg_window.innerHTML + "4";
+      }
+      else if ((separateTextNormal[countNormal] == "Á") || (separateTextNormal[countNormal] == "á")) {
+        normal_leet_msg_window.innerHTML = normal_leet_msg_window.innerHTML + "4";
+      }
+      else if ((separateTextNormal[countNormal] == "À") || (separateTextNormal[countNormal] == "à")) {
+        normal_leet_msg_window.innerHTML = normal_leet_msg_window.innerHTML + "4";
+      }
+      else if ((separateTextNormal[countNormal] == "B") || (separateTextNormal[countNormal] == "b")) {
+        normal_leet_msg_window.innerHTML = normal_leet_msg_window.innerHTML + "8";
+      }
+      else if ((separateTextNormal[countNormal] == "C") || (separateTextNormal[countNormal] == "c")) {
+        normal_leet_msg_window.innerHTML = normal_leet_msg_window.innerHTML + "(";
+      }
+      else if ((separateTextNormal[countNormal] == "D") || (separateTextNormal[countNormal] == "d")) {
+        normal_leet_msg_window.innerHTML = normal_leet_msg_window.innerHTML + "|)";
+      }
+      else if ((separateTextNormal[countNormal] == "E") || (separateTextNormal[countNormal] == "e")) {
+        normal_leet_msg_window.innerHTML = normal_leet_msg_window.innerHTML + "3";
+      }
+      else if ((separateTextNormal[countNormal] == "É") || (separateTextNormal[countNormal] == "é")) {
+        normal_leet_msg_window.innerHTML = normal_leet_msg_window.innerHTML + "3";
+      }
+      else if ((separateTextNormal[countNormal] == "È") || (separateTextNormal[countNormal] == "è")) {
+        normal_leet_msg_window.innerHTML = normal_leet_msg_window.innerHTML + "3";
+      }
+      else if ((separateTextNormal[countNormal] == "G") || (separateTextNormal[countNormal] == "g")) {
+        normal_leet_msg_window.innerHTML = normal_leet_msg_window.innerHTML + "6";
+      }
+      else if ((separateTextNormal[countNormal] == "I") || (separateTextNormal[countNormal] == "i")) {
+        normal_leet_msg_window.innerHTML = normal_leet_msg_window.innerHTML + "!";
+      }
+      else if ((separateTextNormal[countNormal] == "Í") || (separateTextNormal[countNormal] == "í")) {
+        normal_leet_msg_window.innerHTML = normal_leet_msg_window.innerHTML + "!";
+      }
+      else if ((separateTextNormal[countNormal] == "Ì") || (separateTextNormal[countNormal] == "ì")) {
+        normal_leet_msg_window.innerHTML = normal_leet_msg_window.innerHTML + "!";
+      }
+      else if ((separateTextNormal[countNormal] == "L") || (separateTextNormal[countNormal] == "l")) {
+        normal_leet_msg_window.innerHTML = normal_leet_msg_window.innerHTML + "1";
+      }
+      else if ((separateTextNormal[countNormal] == "O") || (separateTextNormal[countNormal] == "o")) {
+        normal_leet_msg_window.innerHTML = normal_leet_msg_window.innerHTML + "0";
+      }
+      else if ((separateTextNormal[countNormal] == "Ó") || (separateTextNormal[countNormal] == "ó")) {
+        normal_leet_msg_window.innerHTML = normal_leet_msg_window.innerHTML + "0";
+      }
+      else if ((separateTextNormal[countNormal] == "Ò") || (separateTextNormal[countNormal] == "ò")) {
+        normal_leet_msg_window.innerHTML = normal_leet_msg_window.innerHTML + "0";
+      }
+      else if ((separateTextNormal[countNormal] == "S") || (separateTextNormal[countNormal] == "s")) {
+        normal_leet_msg_window.innerHTML = normal_leet_msg_window.innerHTML + "5";
+      }
+      else if ((separateTextNormal[countNormal] == "T") || (separateTextNormal[countNormal] == "t")) {
+        normal_leet_msg_window.innerHTML = normal_leet_msg_window.innerHTML + "7";
+      }
+      else if ((separateTextNormal[countNormal] == "U") || (separateTextNormal[countNormal] == "u")) {
+        normal_leet_msg_window.innerHTML = normal_leet_msg_window.innerHTML + "|_|";
+      }
+      else if ((separateTextNormal[countNormal] == "Ú") || (separateTextNormal[countNormal] == "ú")) {
+        normal_leet_msg_window.innerHTML = normal_leet_msg_window.innerHTML + "|_|";
+      }
+      else if ((separateTextNormal[countNormal] == "Ù") || (separateTextNormal[countNormal] == "ù")) {
+        normal_leet_msg_window.innerHTML = normal_leet_msg_window.innerHTML + "|_|";
+      }
+      else if (separateTextNormal[countNormal] == "!") {
+        normal_leet_msg_window.innerHTML = normal_leet_msg_window.innerHTML + " !";
+      }
+      else if (separateTextNormal[countNormal] == "?") {
+        normal_leet_msg_window.innerHTML = normal_leet_msg_window.innerHTML + " ?";
+      }
+      else {
+        normal_leet_msg_window.innerHTML = normal_leet_msg_window.innerHTML + separateTextNormal[countNormal];
+      }
+      countNormal = countNormal + 1;
+    }
+      normal_leet_msg_window.innerHTML = normal_leet_msg_window.innerHTML;
+      return false;
+  }
+
+  // Function to encode to ultimate leet
+  function encode_letters_to_ultimate_leet() {
+    var ultimate_leet_msg_window = document.getElementById("ultimate_leet_msg");
+    var textUltimate = document.getElementById("ultimate_leet").value;
+    var countUltimate = 0;
+    var textSizeUltimate = textUltimate.length;
+    var separateTextUltimate = textUltimate.split("");
+    ultimate_leet_msg_window.innerHTML = "";
+
+    while (countUltimate < textSizeUltimate) {
+      if ((separateTextUltimate[countUltimate] == "0" || separateTextUltimate[countUltimate] == "1" || separateTextUltimate[countUltimate] == "2"
+          || separateTextUltimate[countUltimate] == "3" || separateTextUltimate[countUltimate] == "4" || separateTextUltimate[countUltimate] == "5"
+          || separateTextUltimate[countUltimate] == "6" || separateTextUltimate[countUltimate] == "7" || separateTextUltimate[countUltimate] == "8"
+          || separateTextUltimate[countUltimate] == "9" || separateTextUltimate[countUltimate] == "(")) {
+        var number = "yes";
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "{" + separateTextUltimate[countUltimate];
+        while (number == "yes") {
+          countUltimate = countUltimate + 1;
+          if ((separateTextUltimate[countUltimate] == "0" || separateTextUltimate[countUltimate] == "1" || separateTextUltimate[countUltimate] == "2"
+              || separateTextUltimate[countUltimate] == "3" || separateTextUltimate[countUltimate] == "4" || separateTextUltimate[countUltimate] == "5"
+              || separateTextUltimate[countUltimate] == "6" || separateTextUltimate[countUltimate] == "7" || separateTextUltimate[countUltimate] == "8"
+              || separateTextUltimate[countUltimate] == "9" || separateTextUltimate[countUltimate] == ".") || separateTextUltimate[countUltimate] == "(") {
+            ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + separateTextUltimate[countUltimate];
+          }
+          else {
+            if (separateTextUltimate[countUltimate] == null) {
+              ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "}";
+              number = "no";
+            }
+            else {
+              ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "}" + separateTextUltimate[countUltimate];
+              number = "no";
+            }
+          }
+        }
+      }
+      else if ((separateTextUltimate[countUltimate] == "A") || (separateTextUltimate[countUltimate] == "a")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "4";
+      }
+      else if ((separateTextUltimate[countUltimate] == "Á") || (separateTextUltimate[countUltimate] == "á")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "4";
+      }
+      else if ((separateTextUltimate[countUltimate] == "À") || (separateTextUltimate[countUltimate] == "à")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "4";
+      }
+      else if ((separateTextUltimate[countUltimate] == "B") || (separateTextUltimate[countUltimate] == "b")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "|3";
+      }
+      else if ((separateTextUltimate[countUltimate] == "C") || (separateTextUltimate[countUltimate] == "c")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "(";
+      }
+      else if ((separateTextUltimate[countUltimate] == "D") || (separateTextUltimate[countUltimate] == "d")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "|)";
+      }
+      else if ((separateTextUltimate[countUltimate] == "E") || (separateTextUltimate[countUltimate] == "e")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "3";
+      }
+      else if ((separateTextUltimate[countUltimate] == "É") || (separateTextUltimate[countUltimate] == "é")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "3";
+      }
+      else if ((separateTextUltimate[countUltimate] == "È") || (separateTextUltimate[countUltimate] == "è")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "3";
+      }
+      else if ((separateTextUltimate[countUltimate] == "G") || (separateTextUltimate[countUltimate] == "g")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "6";
+      }
+      else if ((separateTextUltimate[countUltimate] == "H") || (separateTextUltimate[countUltimate] == "h")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "|-|";
+      }
+      else if ((separateTextUltimate[countUltimate] == "I") || (separateTextUltimate[countUltimate] == "i")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "!";
+      }
+      else if ((separateTextUltimate[countUltimate] == "Í") || (separateTextUltimate[countUltimate] == "í")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "!";
+      }
+      else if ((separateTextUltimate[countUltimate] == "Ì") || (separateTextUltimate[countUltimate] == "ì")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "!";
+      }
+      else if ((separateTextUltimate[countUltimate] == "J") || (separateTextUltimate[countUltimate] == "j")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "_|";
+      }
+      else if ((separateTextUltimate[countUltimate] == "K") || (separateTextUltimate[countUltimate] == "k")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "|<";
+      }
+      else if ((separateTextUltimate[countUltimate] == "L") || (separateTextUltimate[countUltimate] == "l")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "1";
+      }
+      else if ((separateTextUltimate[countUltimate] == "M") || (separateTextUltimate[countUltimate] == "m")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "|\\/|";
+      }
+      else if ((separateTextUltimate[countUltimate] == "N") || (separateTextUltimate[countUltimate] == "n")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "|\\|";
+      }
+      else if ((separateTextUltimate[countUltimate] == "O") || (separateTextUltimate[countUltimate] == "o")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "0";
+      }
+      else if ((separateTextUltimate[countUltimate] == "Ó") || (separateTextUltimate[countUltimate] == "ó")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "0";
+      }
+      else if ((separateTextUltimate[countUltimate] == "Ò") || (separateTextUltimate[countUltimate] == "ò")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "0";
+      }
+      else if ((separateTextUltimate[countUltimate] == "S") || (separateTextUltimate[countUltimate] == "s")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "5";
+      }
+      else if ((separateTextUltimate[countUltimate] == "T") || (separateTextUltimate[countUltimate] == "t")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "7";
+      }
+      else if ((separateTextUltimate[countUltimate] == "R") || (separateTextUltimate[countUltimate] == "r")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "|2";
+      }
+      else if ((separateTextUltimate[countUltimate] == "U") || (separateTextUltimate[countUltimate] == "u")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "|_|";
+      }
+      else if ((separateTextUltimate[countUltimate] == "Ú") || (separateTextUltimate[countUltimate] == "ú")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "|_|";
+      }
+      else if ((separateTextUltimate[countUltimate] == "Ù") || (separateTextUltimate[countUltimate] == "ù")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "|_|";
+      }
+      else if ((separateTextUltimate[countUltimate] == "V") || (separateTextUltimate[countUltimate] == "v")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "\\/";
+      }
+      else if ((separateTextUltimate[countUltimate] == "W") || (separateTextUltimate[countUltimate] == "w")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "\\/\\/";
+      }
+      else if ((separateTextUltimate[countUltimate] == "Y") || (separateTextUltimate[countUltimate] == "y")) {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + "`/";
+      }
+      else if (separateTextUltimate[countUltimate] == "!") {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + " !";
+      }
+      else if (separateTextUltimate[countUltimate] == "?") {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + " ?";
+      }
+      else {
+        ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML + separateTextUltimate[countUltimate];
+      }
+      countUltimate = countUltimate + 1;
+    }
+      ultimate_leet_msg_window.innerHTML = ultimate_leet_msg_window.innerHTML;
+      return false;
+  }
+
+  // Function to encode to heavy leet
+  function encode_letters_to_heavy_leet() {
+    var heavy_leet_msg_window = document.getElementById("heavy_leet_msg");
+    var textHeavy = document.getElementById("heavy_leet").value;
+    var countHeavy = 0;
+    var textSizeHeavy = textHeavy.length;
+    var separateTextHeavy = textHeavy.split("");
+    heavy_leet_msg_window.innerHTML = "";
+
+    while (countHeavy < textSizeHeavy) {
+      if ((separateTextHeavy[countHeavy] == "0" || separateTextHeavy[countHeavy] == "1" || separateTextHeavy[countHeavy] == "2"
+          || separateTextHeavy[countHeavy] == "3" || separateTextHeavy[countHeavy] == "4" || separateTextHeavy[countHeavy] == "5"
+          || separateTextHeavy[countHeavy] == "6" || separateTextHeavy[countHeavy] == "7" || separateTextHeavy[countHeavy] == "8"
+          || separateTextHeavy[countHeavy] == "9" || separateTextHeavy[countHeavy] == "(")) {
+        var number = "yes";
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "{" + separateTextHeavy[countHeavy];
+        while (number == "yes") {
+          countHeavy = countHeavy + 1;
+          if ((separateTextHeavy[countHeavy] == "0" || separateTextHeavy[countHeavy] == "1" || separateTextHeavy[countHeavy] == "2"
+              || separateTextHeavy[countHeavy] == "3" || separateTextHeavy[countHeavy] == "4" || separateTextHeavy[countHeavy] == "5"
+              || separateTextHeavy[countHeavy] == "6" || separateTextHeavy[countHeavy] == "7" || separateTextHeavy[countHeavy] == "8"
+              || separateTextHeavy[countHeavy] == "9" || separateTextHeavy[countHeavy] == "." || separateTextHeavy[countHeavy] == "(")) {
+            heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + separateTextHeavy[countHeavy];
+          }
+          else {
+            if (separateTextHeavy[countHeavy] == null) {
+              heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "}";
+              number = "no";
+            }
+            else {
+              heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "}" + separateTextHeavy[countHeavy];
+              number = "no";
+            }
+          }
+        }
+      }
+      else if ((separateTextHeavy[countHeavy] == "A") || (separateTextHeavy[countHeavy] == "a")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "@";
+      }
+      else if ((separateTextHeavy[countHeavy] == "Á") || (separateTextHeavy[countHeavy] == "á")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "@";
+      }
+      else if ((separateTextHeavy[countHeavy] == "À") || (separateTextHeavy[countHeavy] == "à")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "@";
+      }
+      else if ((separateTextHeavy[countHeavy] == "B") || (separateTextHeavy[countHeavy] == "b")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "|3";
+      }
+      else if ((separateTextHeavy[countHeavy] == "C") || (separateTextHeavy[countHeavy] == "c")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "<";
+      }
+      else if ((separateTextHeavy[countHeavy] == "D") || (separateTextHeavy[countHeavy] == "d")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "[)";
+      }
+      else if ((separateTextHeavy[countHeavy] == "E") || (separateTextHeavy[countHeavy] == "e")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "€";
+      }
+      else if ((separateTextHeavy[countHeavy] == "É") || (separateTextHeavy[countHeavy] == "é")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "€";
+      }
+      else if ((separateTextHeavy[countHeavy] == "È") || (separateTextHeavy[countHeavy] == "è")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "€";
+      }
+      else if ((separateTextHeavy[countHeavy] == "F") || (separateTextHeavy[countHeavy] == "f")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "|=";
+      }
+      else if ((separateTextHeavy[countHeavy] == "G") || (separateTextHeavy[countHeavy] == "g")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "9";
+      }
+      else if ((separateTextHeavy[countHeavy] == "H") || (separateTextHeavy[countHeavy] == "h")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "#";
+      }
+      else if ((separateTextHeavy[countHeavy] == "I") || (separateTextHeavy[countHeavy] == "i")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "!";
+      }
+      else if ((separateTextHeavy[countHeavy] == "Í") || (separateTextHeavy[countHeavy] == "í")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "!";
+      }
+      else if ((separateTextHeavy[countHeavy] == "Ì") || (separateTextHeavy[countHeavy] == "ì")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "!";
+      }
+      else if ((separateTextHeavy[countHeavy] == "J") || (separateTextHeavy[countHeavy] == "j")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "_|";
+      }
+      else if ((separateTextHeavy[countHeavy] == "K") || (separateTextHeavy[countHeavy] == "k")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "|<";
+      }
+      else if ((separateTextHeavy[countHeavy] == "L") || (separateTextHeavy[countHeavy] == "l")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "1";
+      }
+      else if ((separateTextHeavy[countHeavy] == "M") || (separateTextHeavy[countHeavy] == "m")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "|\\/|";
+      }
+      else if ((separateTextHeavy[countHeavy] == "N") || (separateTextHeavy[countHeavy] == "n")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "|\\|";
+      }
+      else if ((separateTextHeavy[countHeavy] == "O") || (separateTextHeavy[countHeavy] == "o")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "0";
+      }
+      else if ((separateTextHeavy[countHeavy] == "Ó") || (separateTextHeavy[countHeavy] == "ó")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "0";
+      }
+      else if ((separateTextHeavy[countHeavy] == "Ò") || (separateTextHeavy[countHeavy] == "ò")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "0";
+      }
+      else if ((separateTextHeavy[countHeavy] == "S") || (separateTextHeavy[countHeavy] == "s")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "$";
+      }
+      else if ((separateTextHeavy[countHeavy] == "T") || (separateTextHeavy[countHeavy] == "t")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "7";
+      }
+      else if ((separateTextHeavy[countHeavy] == "R") || (separateTextHeavy[countHeavy] == "r")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "|^";
+      }
+      else if ((separateTextHeavy[countHeavy] == "U") || (separateTextHeavy[countHeavy] == "u")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "(_)";
+      }
+      else if ((separateTextHeavy[countHeavy] == "Ú") || (separateTextHeavy[countHeavy] == "ú")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "(_)";
+      }
+      else if ((separateTextHeavy[countHeavy] == "Ù") || (separateTextHeavy[countHeavy] == "ù")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "(_)";
+      }
+      else if ((separateTextHeavy[countHeavy] == "V") || (separateTextHeavy[countHeavy] == "v")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "\\/";
+      }
+      else if ((separateTextHeavy[countHeavy] == "W") || (separateTextHeavy[countHeavy] == "w")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "\\/\\/";
+      }
+      else if ((separateTextHeavy[countHeavy] == "X") || (separateTextHeavy[countHeavy] == "x")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "%";
+      }
+      else if ((separateTextHeavy[countHeavy] == "Y") || (separateTextHeavy[countHeavy] == "y")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "`/";
+      }
+      else if ((separateTextHeavy[countHeavy] == "Z") || (separateTextHeavy[countHeavy] == "z")) {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + "~/_";
+      }
+      else if (separateTextHeavy[countHeavy] == "!") {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + " !";
+      }
+      else if (separateTextHeavy[countHeavy] == "?") {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + " ?";
+      }
+      else {
+        heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML + separateTextHeavy[countHeavy];
+      }
+      countHeavy = countHeavy + 1;
+    }
+      heavy_leet_msg_window.innerHTML = heavy_leet_msg_window.innerHTML;
+      return false;
+  }
+
+  // Function to decode from leet
+  function decode_letters_from_leet() {
+    var decode_leet_msg_window = document.getElementById("decode_leet_msg");
+    var textDecode = document.getElementById("decode_leet").value;
+    var countDecode=0;
+    var textSizeDecode = textDecode.length;
+    var separateTextDecode = textDecode.split("");
+    decode_leet_msg_window.innerHTML = "";
+
+    while (countDecode < textSizeDecode) {
+      if (separateTextDecode[countDecode] == "4") {
+        decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "a";
+      }
+      else if (separateTextDecode[countDecode] == "@") {
+        decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "a";
+      }
+      else if (separateTextDecode[countDecode] == "8") {
+        decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "b";
+      }
+      else if (separateTextDecode[countDecode] == "(") {
+        countDecode = countDecode + 1;
+        if (separateTextDecode[countDecode] == "_") {
+          countDecode = countDecode + 1;
+          if (separateTextDecode[countDecode] == ")") {
+            decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "u";
+          }
+          else {
+            countDecode = countDecode - 1;
+            decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "(_";
+          }
+        }
+        else {
+          countDecode = countDecode - 1;
+          decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "c";
+        }
+      }
+      else if (separateTextDecode[countDecode] == "<") {
+        decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "c";
+      }
+      else if (separateTextDecode[countDecode] == "3") {
+        decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "e";
+      }
+      else if (separateTextDecode[countDecode] == "€") {
+        decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "e";
+      }
+      else if (separateTextDecode[countDecode] == "6") {
+        decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "g";
+      }
+      else if (separateTextDecode[countDecode] == "9") {
+        decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "g";
+      }
+      else if (separateTextDecode[countDecode] == "!") {
+        decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "i";
+      }
+      //else if (separateTextDecode[countDecode] == "¿") {
+      //  decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "j";
+      //}
+      else if (separateTextDecode[countDecode] == "_") {
+        countDecode = countDecode + 1;
+        if (separateTextDecode[countDecode] == "|") {
+          decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "j";
+        }
+        else {
+          countDecode = countDecode - 1;
+          decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "_";
+        }
+      }
+      else if (separateTextDecode[countDecode] == "1") {
+        decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "l";
+      }
+      else if (separateTextDecode[countDecode] == "0") {
+        decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "o";
+      }
+      else if (separateTextDecode[countDecode] == "5") {
+        decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "s";
+      }
+      else if (separateTextDecode[countDecode] == "$") {
+        decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "s";
+      }
+      else if (separateTextDecode[countDecode] == "7") {
+        decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "t";
+      }
+      else if (separateTextDecode[countDecode] == "#") {
+        decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "h";
+      }
+      else if (separateTextDecode[countDecode] == "[") {
+        countDecode = countDecode + 1;
+        if (separateTextDecode[countDecode] == ")") {
+          decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "d";
+        }
+        else {
+          countDecode = countDecode - 1;
+          decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + separateTextDecode[countDecode];
+        }
+      }
+      else if (separateTextDecode[countDecode] == "|") {
+        countDecode = countDecode + 1;
+        if (separateTextDecode[countDecode] == "3") {
+          decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "b";
+        }
+        else if (separateTextDecode[countDecode] == ")") {
+          decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "d";
+        }
+        else if (separateTextDecode[countDecode] == "=") {
+          decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "f";
+        }
+        else if (separateTextDecode[countDecode] == "-") {
+          countDecode = countDecode + 1;
+          if (separateTextDecode[countDecode] == "|"){
+            decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "h";
+          }
+          else {
+            countDecode = countDecode - 1;
+            decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "|-";
+          }
+        }
+        else if (separateTextDecode[countDecode] == "<") {
+          decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "k";
+        }
+        else if (separateTextDecode[countDecode] == "2") {
+          decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "r";
+        }
+        else if (separateTextDecode[countDecode] == "^") {
+          decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "r";
+        }
+        else if (separateTextDecode[countDecode] == "_") {
+          countDecode = countDecode + 1;
+          if (separateTextDecode[countDecode] == "|") {
+            countDecode = countDecode + 1;
+            if (separateTextDecode[countDecode] == "_") {
+              countDecode = countDecode + 1;
+              if (separateTextDecode[countDecode] == "|") {
+                decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "uj";
+              }
+              else {
+                countDecode = countDecode - 1;
+                decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "ll";
+              }
+            }
+            else {
+              countDecode = countDecode - 1;
+               decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "u";
+            }
+          }
+          else {
+            countDecode = countDecode - 1;
+            decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "l";
+          }
+        }
+        else if (separateTextDecode[countDecode] == "\\") {
+          countDecode = countDecode + 1;
+          if (separateTextDecode[countDecode] == "|") {
+            decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "n";
+          }
+          else if (separateTextDecode[countDecode] == "/") {
+            countDecode = countDecode + 1;
+            decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "m";
+          }
+        }
+        else {
+          countDecode = countDecode - 1;
+          decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "|";
+        }
+      }
+      else if (separateTextDecode[countDecode] == "\\") {
+        countDecode = countDecode + 1;
+        if (separateTextDecode[countDecode] == "/") {
+          countDecode = countDecode + 1;
+          if (separateTextDecode[countDecode] == "\\") {
+            countDecode = countDecode + 1;
+            if (separateTextDecode[countDecode] == "/") {
+              decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "w";
+            }
+            else {
+              countDecode = countDecode - 1;
+              decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "v\\";
+            }
+          }
+          else {
+            countDecode = countDecode - 1;
+            decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "v";
+          }
+        }
+        else {
+          countDecode = countDecode - 1;
+          decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "\\";
+        }
+      }
+      else if (separateTextDecode[countDecode] == "`") {
+        countDecode = countDecode + 1;
+        if (separateTextDecode[countDecode] == "/") {
+          decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "y";
+        }
+        else {
+          countDecode = countDecode - 1;
+          decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "`";
+        }
+      }
+      else if (separateTextDecode[countDecode] == "%") {
+        decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "x";
+      }
+      else if (separateTextDecode[countDecode] == "~") {
+        countDecode = countDecode + 1;
+        if (separateTextDecode[countDecode] == "/") {
+          countDecode = countDecode + 1;
+          if (separateTextDecode[countDecode] == "_") {
+            decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "z";
+          }
+          else {
+            countDecode = countDecode - 1;
+            decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "~/";
+          }
+        }
+        else {
+          countDecode = countDecode - 1;
+          decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + "~";
+        }
+      }
+      else if (separateTextDecode[countDecode] == "{") {
+        countDecode = countDecode + 1;
+        while (separateTextDecode[countDecode] != "}") {
+          decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + separateTextDecode[countDecode];
+          countDecode = countDecode + 1;
+        }
+      }
+      else if (separateTextDecode[countDecode] == " ") {
+        countDecode = countDecode + 1;
+        if (separateTextDecode[countDecode] == "!") {
+          countDecode = countDecode + 1;
+          if (separateTextDecode[countDecode] == "!") {
+            decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + " !";
+          }
+          else {
+            countDecode = countDecode - 1;
+            decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + " i";
+          }
+        }
+        else {
+          countDecode = countDecode - 1;
+          decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + " ";
+        }
+      }
+      else {
+        decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML + separateTextDecode[countDecode];
+      }
+      countDecode = countDecode + 1;
+    }
+      decode_leet_msg_window.innerHTML = decode_leet_msg_window.innerHTML;
+      return false;
+  }
+  </script>
+</body>
+</html>
