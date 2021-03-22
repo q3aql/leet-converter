@@ -7,7 +7,7 @@ leet-converter - L33t Encoder & Decoder written in HTML/Javascript
 
 # Screenshot
 
-<img src="https://raw.githubusercontent.com/q3aql/leet-converter/master/img/leet-converter.png" width="700" />
+<img src="https://raw.githubusercontent.com/q3aql/leet-converter/master/img/leet-converter.png" width="900" />
 
 # How to use
 
